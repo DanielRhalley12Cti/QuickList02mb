@@ -1,4 +1,4 @@
-const items = []
+let items = []
 
 function addItem() {
     const itemName = document.querySelector("#item").value
@@ -32,17 +32,19 @@ function showItemsList() {
                 <div>
                     <input type="checkbox" name="list" id="item-${index}" ${item.checked ? 'checked' : ''}>
                     <div class="custom-checkbox" onclick="checkItem('${item.name}')">
-                        <img src="./assets/checked.svg" alt="checked">
+                        <img src="./assets-20250608T215033Z-1-001/assets/checked.svg" alt="checked">
                     </div>
                     <label for="item-${index}" onclick="checkItem('${item.name}')">${item.name}</label>
                 </div>
 
                 <button onclick="removeItem('${item.name}')")>
-                    <img src="./assets/trash-icon.svg" alt="trash icon">
+                    <img src="./assets-20250608T215033Z-1-001/assets/trash-icon.svg" alt="trash icon">
                 </button>
             </div>
         `
     })
+
+    localStorage.setItem("items", JSON.stringify(items))
 }
 
 function removeItem(itemName) {
@@ -64,10 +66,21 @@ function removeItem(itemName) {
 
 function checkItem(itemName) {
     const item = items.find((item) => item.name === itemName)
-    item.checked = !item.checkedAdd 
+    item.checked = !item.checked
     showItemsList()
 }
 
 function addHideWarningClass() {
     document.querySelector(".warning").classList.add("hide-warning")
 }
+
+function verifyLocalStorage() {
+    const localStorageItems = localStorage.getItem("items")
+
+    if (itemsLocalStorage) {
+        items = JSON.parse(localStorageItems)
+        showItemsList()
+    }
+}
+
+verifyLocalStorage()

@@ -80,7 +80,7 @@ main {
             color: var(--content-tertiary);
         }
 
-        &:hover {
+        &::hover {
             border: 2px solid var(--border-hover);
         }
 
@@ -153,7 +153,7 @@ main {
                 text-decoration: line-through;
             }
         }
-
+        
         button {
             background: none;
             border: none;
@@ -224,7 +224,7 @@ main {
         }
 
         button {
-            grid-column: 8 / 11;
+            grid-column: 8 / 11;;
         }
     }
 }
