@@ -1,4 +1,4 @@
-const items = []
+const items = []More actions
 
 function addItem() {
     const itemName = document.querySelector("#item").value
@@ -15,11 +15,11 @@ function addItem() {
     showItemsList()
 }
 
-function showItemsList() 
+function showItemsList() {
     const sectionList = document.querySelector(".list")
     sectionList.textContent = ""
 
-    items.map (item, index) => 
+    items.map((item, index) => {
         sectionList.innerHTML += `
             <div class="item">
                 <div>
@@ -34,6 +34,6 @@ function showItemsList()
                     <img src="./assets/trash-icon.svg" alt="trash icon">
                 </button>
             </div>
-        
+        `
     })
 }
