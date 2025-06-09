@@ -3,6 +3,11 @@ const items = []
 function addItem() {
     const itemName = document.querySelector("#item").value
 
+    if (itemName === "") {
+        alert("Não é possível adicionar um item em branco!")
+        return
+    }
+
     const item = {
         name: itemName,
         checked: false
@@ -23,7 +28,6 @@ function showItemsList() {
         sectionList.innerHTML += `
             <div class="item">
                 <div>
-                    
                     <input type="checkbox" name="list" id="item-${index}" ${item.checked ? 'checked' : ''}>
                     <div class="custom-checkbox" onclick="checkItem('${item.name}')">
                         <img src="./assets/checked.svg" alt="checked">
@@ -69,4 +73,3 @@ function checkItem(itemName) {
 
     item.checked = !item.checked
     showItemsList()
-}
